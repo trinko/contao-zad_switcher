@@ -1,4 +1,4 @@
-Version 3.0.1 stable
+Version 3.0.2 stable
 --------------------
 Fixed: reinserted deprecated function call for Contao 3.0 compatibility.
 
