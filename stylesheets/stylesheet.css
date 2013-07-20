@@ -121,6 +121,7 @@ strong {
   font-weight: bold;
 }
 img {
+  max-width:640px;
   position: relative;
   margin: 0 auto;
   padding: 5px;
@@ -215,6 +216,15 @@ form {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+ul.download, ul.download li {
+  list-style:none;
+}
+ul.download a {
+  display: block;
+  background: url(../images/icon_download.png) no-repeat 0 0;
+  padding-left: 30px;
+  margin: auto;
 }
 
 /**
