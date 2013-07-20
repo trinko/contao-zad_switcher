@@ -1,56 +1,51 @@
-Version 3.0.0 rc1 (2013-07-14)
---------------------------
+Version 3.0.1 stable
+--------------------
+Fixed: reinserted deprecated function call for Contao 3.0 compatibility.
+
+Version 3.0.0 rc1
+-----------------
 * Changed: new version for contao 3.x compatibility.
 * Fixed: the switcher loaded stylesheets in each page, regardless if the module was in the page or not.
 * Fixed: minor bugs.
 
+Version 2.1.2 stable
+--------------------
+* Fixed: a bug in template choice, it was used default template in any case.   
 
-Version 2.1.2 stable (2012-03-12)
+Version 2.1.1 stable
+--------------------
+* Fixed: a bug caused by the new CSS file management in Contao 2.10.x. 
+
+Version 2.1.0 stable
+--------------------
+* Fixed: a bug that duplicated pages in the index created by a site search. 
+* Added: a backend option to allow you to choose whether to use links or form buttons for style selectors. 
+* Changed: template files according the new option added.
+* Changed: template files according to Contao 2.10 requirements.
+
+Version 2.0.2 stable
 --------------------------
-* Fixed a bug in template choice: it was used default template in any case.   
+* Fixed: a minor bug in URLs for switcher buttons. 
 
+Version 2.0.1 stable
+--------------------
+* Changed: default behavior when creating a new style switcher, now the new style switcher is active (visibile).
+* Added: date/time parameter in CSS file name as a version mark (i.e. href="style.css?1300390306").
 
-Version 2.1.1 stable (2011-08-23)
---------------------------
-* Fixed a bug caused by the new CSS file management in Contao 2.10.x. 
-
-
-Version 2.1.0 stable (2011-08-19)
---------------------------
-* Fixed a bug that duplicated pages in the index created by a site search. 
-* Added a backend option to allow you to choose whether to use links or form buttons for style selectors. 
-* Changed templates according the above new option.
-* Changed templates according to Contao 2.10 requirements.
-
-
-Version 2.0.2 stable (2011-05-25)
---------------------------
-* Fixed a minor bug in URLs for switcher buttons: sometimes it was used the separator '&' instead of '&'. 
-
-
-Version 2.0.1 stable (2011-03-22)
---------------------------
-* Changed the default behavior when creating a new style switcher: now the new style switcher is active (visibile).
-* Added the date/time parameter in CSS file name, as in any other css file in Contao (i.e. <link ... href="style.css?1300390306" ...).
-
-
-Version 2.0.0 rc1 (2010-12-28)
---------------------------
-* Added access key and tab index in style switcher's links.
-* Added a more flexible management for standard buttons (next, previous, default).
-* Changed database tables to improve backend interface.
+Version 2.0.0 rc1
+-----------------
+* Added: access key and tab index in style switcher's links.
+* Added: a more flexible management for standard buttons (next, previous, default).
+* Changed: database tables to improve backend interface.
 * UPGRADING FROM 1.x.x WARNING:
   after upgraded the module, if you used standard buttons (next, previous, default)  
   you have to go to style switcher settings and enable buttons.
 
+Version 1.0.1 stable
+--------------------
+* Fixed: order for CSS loading, switcher's styles are now the last ones.
+* Fixed: front-end bug, style switcher was shown when it was disabled. 
 
-Version 1.0.1 stable (2010-11-05)
---------------------------
-* Fixed order for CSS loading: switcher's styles are now the last ones.
-* Fixed front-end bug: style switcher was shown when it was disabled. 
-
-
-Version 1.0.0 rc1 (2010-10-31)
---------------------------
+Version 1.0.0 rc1
+-----------------
 * First public release.
-
