@@ -311,7 +311,7 @@ class tl_zad_switcher extends Backend {
 		if (!$row['active']) {
 			$icon = 'invisible.gif';
 		}
-		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
+		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.Controller::generateImage($icon, $label).'</a> ';
 	}
 
 	/**

@@ -270,8 +270,8 @@ class tl_zad_switcher_style extends Backend {
 		}
 		$href .= '&amp;tid='.$row['id'].'&amp;state='.($row['defaultstyle'] ? '' : 1);
     return $row['defaultstyle'] ?
-      Image::getHtml('system/modules/zad_switcher/assets/default.gif') . ' ' :
-		  '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
+      Controller::generateImage('system/modules/zad_switcher/assets/default.gif') . ' ' :
+		  '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.Controller::generateImage($icon, $label).'</a> ';
 	}
 
 	/**
@@ -309,8 +309,8 @@ class tl_zad_switcher_style extends Backend {
 					                  ->execute($row['id']);
     // return the button
     return $style->defaultstyle ?
-      Image::getHtml(preg_replace('/\.gif$/i', '_.gif', $icon)) . ' ' :
-      '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
+      Controller::generateImage(preg_replace('/\.gif$/i', '_.gif', $icon)) . ' ' :
+      '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.Controller::generateImage($icon, $label).'</a> ';
   }
 
 	/**
@@ -329,8 +329,8 @@ class tl_zad_switcher_style extends Backend {
 					                  ->execute($row['id']);
     // return the button
     return $style->defaultstyle ?
-      Image::getHtml(preg_replace('/\.gif$/i', '_.gif', $icon)) . ' ' :
-      '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
+      Controller::generateImage(preg_replace('/\.gif$/i', '_.gif', $icon)) . ' ' :
+      '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.Controller::generateImage($icon, $label).'</a> ';
   }
 
 	/**
