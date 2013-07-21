@@ -274,6 +274,43 @@ ul.download a {
   background:#000000;
   text-decoration:none;
 }
+#page_nav {
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  margin-top:2em;
+  border-top:2px dotted #cccccc;
+  padding-top:5px;
+}
+#page_nav ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  position:relative;
+}
+#page_nav ul li {
+  list-style:none;
+  margin:0;
+  padding:0;
+  position:relative;
+}
+#page_nav a.next {
+  display:block;
+  float:right;
+  padding:3px 30px 3px 10px;
+  line-height:1.3em;
+  background: url(../images/icon_next.png) no-repeat right center;
+}
+#page_nav a.prev {
+  display:block;
+  float:left;
+  padding:3px 10px 3px 30px;
+  line-height:1.3em;
+  background: url(../images/icon_previous.png) no-repeat left center;
+}
+#page_nav a:hover {
+  text-decoration:underline;
+}
 
 /**
  * Full size layout
