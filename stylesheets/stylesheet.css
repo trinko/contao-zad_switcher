@@ -203,7 +203,6 @@ th {
   background: #373737;
   color: #ffffff;
 }
-
 td {
   padding: 10px;
   border: 1px solid #373737;
@@ -311,6 +310,18 @@ ul.download a {
 #page_nav a:hover {
   text-decoration:underline;
 }
+
+/**
+ * Source highlight
+ */
+code .c { color: #55aa00; font-style: italic } /* Comment */
+code .k { font-weight: bold } /* Keyword */
+code .o { color: #666666; font-weight: bold } /* Operator */
+code .n { color: #00aa00 } /* Number */
+code .s { color: #CC3300 } /* String */
+code .err { background-color: #FFFF00; color: #aa0000; } /* Error */
+code .ins { background-color: #CCFFCC; border: 1px solid #00CC00 } /* Inserted */
+code .del { background-color: #FFCCCC; border: 1px solid #CC0000 } /* Deleted */
 
 /**
  * Full size layout

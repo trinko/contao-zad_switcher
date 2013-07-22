@@ -36,50 +36,15 @@
 <div id="main_content_wrap" class="outer">
   <div id="main_content" class="inner">
 
-    <h3>Creating styles</h3>
-    <p>Consider the following scenario:</p>
-    <ul>
-      <li>you realized a Contao website, with <strong>ZAD Style Switcher</strong> extension installed;</li>
-      <li>all site styles are collected in the <strong>"main"</strong> stylesheet;</li>
-      <li>you want to add a style switcher for choosing between seven different font sizes.</li>
-    </ul>
-    <p>Then, you have to make seven stylesheets with different font size settings.</p>
-    <p>You could make seven copy of <strong>"main"</strong> stylesheet and alter
-    only the font size settings.
-    In this way you would get seven alternative styles, each one containing all that is needed
-    for the site, thus making useless the <strong>"main"</strong> stylesheet.
-    Using this strategy only makes sense if you want to perform a quick job and
-    you have a very simple site, with a few styles.
-    Otherwise you have to expect troubles: if you later want to change the
-    color of a background, you will not have to change a single stylesheet, but
-    seven ones!</p>
-    <p>The best solution is to take advantage of the opportunity to redefine styles:
-    the <strong>"main"</strong> stylesheet will be executed first, while the style choosen
-    by the user will be loaded later on, overriding only the font size settings and
-    inheriting all the rest.</p>
-    <p>In our scenario, you can improve even more this technique: first
-    of all you make sure that all font size settings in the <strong>"main"</strong>
-    stylesheet are specified using relative units (%, em, ex).
-    Then, you create a new stylesheet, named <strong>"font_100"</strong>, with an initial value
-    for the font size as follows:</p>
-<pre><code>body {
-  <span class="k">font-size</span>: <span class="n">100%</span>;
-}</code></pre>
-    <p>Now you can continue creating the remaining stylesheets:</p>
-    <ul>
-      <li><strong>"font_70"</strong>, with 70% as initial value;</li>
-      <li><strong>"font_80"</strong>, with 80% as initial value;</li>
-      <li><strong>"font_90"</strong>, with 90% as initial value;</li>
-      <li><strong>"font_110"</strong>, with 110% as initial value;</li>
-      <li><strong>"font_120"</strong>, with 120% as initial value;</li>
-      <li><strong>"font_130"</strong>, with 130% as initial value.</li>
-    </ul>
-    <div id="page_nav">
+    <h3>Under construction</h3>
+    <p>...</p>
+
+<!--    <div id="page_nav">
       <ul>
         <li><a class="prev" href="manual.html" title="How it works">Previous</a></li>
         <li><a class="next" href="manual-2.html" title="Style switcher settings">Next</a></li>
       </ul>
-    </div>
+    </div> -->
 
   </div>
 </div>
