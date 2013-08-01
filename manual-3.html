@@ -37,12 +37,61 @@
   <div id="main_content" class="inner">
 
     <h3>Style settings</h3>
-    <p>under construction</p>
-
+    <p>Once saved the new style switcher, push the
+    <img class="inline" src="images/zad_edit.gif" alt="Edit" title="Edit" />
+    button. You will see the <strong>style manager</strong> page.</p>
+    <div class="center"><img src="images/zad_styles.png" alt="Style manager" title="Style manager" /></div>
+    <p>On this page you can manage all the styles, deciding their order too.
+    Sorting is used to know which style activate when using the NEXT/PREVIOUS buttons.
+    Otherwise, if you do not use buttons, sorting determines the display order.
+    Finally, it is very important to define a default style: this one will
+    be loaded if you do not know the user's preferences.</p>
+    <p>The buttons on this page perform the following functions:</p>
+    <ul class="nostyle">
+      <li><img class="inline" src="images/zad_back.gif" alt="Back" title="Back" /> Go back to style switcher manager.</li>
+      <li><img class="inline" src="images/zad_new.gif" alt="New" title="New" /> Add a new style.</li>
+      <li><img class="inline" src="images/zad_all.gif" alt="Edit all" title="Edit all" /> Edit multiple styles at once.</li>
+      <li><img class="inline" src="images/zad_edit.gif" alt="Edit" title="Edit" /> Edit a style.</li>
+      <li><img class="inline" src="images/zad_copy.gif" alt="Copy" title="Copy" /> Copy a style.</li>
+      <li><img class="inline" src="images/zad_cut.gif" alt="Move" title="Move" /> Move a style.</li>
+      <li><img class="inline" src="images/zad_delete.gif" alt="Delete" title="Delete" /> Delete a style.</li>
+      <li><img class="inline" src="images/zad_default.gif" alt="Default" title="Default" /> Set the default style.</li>
+      <li><img class="inline" src="images/zad_show.gif" alt="Show" title="Show" /> Show details of a style.</li>
+      <li><img class="inline" src="images/zad_drag.gif" alt="Drag" title="Drag" /> Drag a style.</li>
+    </ul>
+    <p>Then, create a new style pushing the
+    <img class="inline" src="images/zad_new.gif" alt="New" title="New" />
+    button. You will see a page where you can enter the following information:</p>
+    <ul>
+      <li><strong>Name</strong>: the name of the style.</li>
+      <li><strong>Use an internal CSS</strong>: enable this option if you want to use a Contao
+        managed style instead of an external CSS file; depending on this choice, it will be
+        showed one of the following:
+        <ul>
+          <li>the list of Contao managed styles, from which you have to choose one;</li>
+          <li>the list of CSS files on your server, from which you have to choose one.</li>
+        </ul>
+      </li>
+    </ul>
+    <p>If you didn’t previously enable NEXT/PREVIOUS/DEFAULT buttons, you will have to set:</p>
+    <ul>
+      <li><strong>Button title</strong>: the text that appears when you move the mouse over the button;</li>
+      <li><strong>Button label</strong>: the text displayed in the button;</li>
+      <li><strong>Button image</strong>: the image displayed in the button;</li>
+      <li><strong>Tab index</strong>: the position of the navigation item in the tabbing order;</li>
+      <li><strong>Access key</strong>: the key for focusing the item.</li>
+    </ul>
+    <p>In our scenario, you can enter the following values:</p>
+    <ul>
+      <li><strong>Name</strong>: <em>"70%"</em></li>
+      <li><strong>Use an internal CSS</strong>: <em>enabled</em></li>
+      <li><strong>Style sheet</strong>: <em>font_70</em></li>
+    </ul>
+    <p>In a similar way you can add the other styles. When done, set the <em>font_100</em> style as the default.</p>
     <div id="page_nav">
       <ul>
         <li><a class="prev" href="manual-2.html" title="Style switcher settings">Previous</a></li>
-        <!-- li><a class="next" href="manual-4.html" title="...">Next</a></li -->
+        <li><a class="next" href="manual-4.html" title="Displaying the style switcher">Next</a></li>
       </ul>
     </div>
 

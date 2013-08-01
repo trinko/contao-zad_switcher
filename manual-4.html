@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+<head>
+  <title>ZAD Style Switcher - User manual</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta name="description" content="ZAD Style Switcher - An extension for Contao CMS" />
+  <meta name="keywords" content="contao,cms,style switcher,css,accessibility" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" />
+  <link rel="icon" href="images/favicon.ico" />
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+  <div class="inner">
+    <a id="forkme_banner" href="https://github.com/trinko/contao-zad_switcher" title="Go to GitHub repository">View on GitHub</a>
+    <a id="contao_banner" href="https://contao.org/en/extension-list/view/zad_switcher.html" title="Go to Contao extension list">View on Contao</a>
+    <h1 id="project_title">ZAD Style Switcher</h1>
+    <h2 id="project_tagline">An extension for Contao CMS</h2>
+    <div id="menu_nav">
+      <ul>
+        <li><a href="index.html" title="Project's home page">Project</a></li>
+        <li><a href="download.html" title="Download and installation">Download</a></li>
+        <li><a class="active" href="manual.html" title="User manual">Manual</a></li>
+        <li><a href="contribute.html" title="How to contribute">Contribute</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+  <div id="main_content" class="inner">
+
+    <h3>Displaying the style switcher</h3>
+    <p>After setting styles, we’ll display the style switcher in Contao front-end.
+    As is usual in Contao, we have to create a new front end module within the theme in use,
+    entering the following information:</p>
+    <ul>
+      <li><strong>Title</strong>: the title of the module (it will not be displayed in the front-end).</li>
+      <li><strong>Headline</strong>: the headline for the module that will be displayed in the front-end page.</li>
+      <li><strong>Module type</strong>: you will choose <em>"Style switcher"</em> in the <em>Applications</em> list.</li>
+      <li><strong>Style switcher</strong>: the style switcher you want to show in the front end page.</li>
+    </ul>
+    <p>You can also add more advanced settings, as for any other Contao module.
+    In our scenario, however, enter only the following information:</p>
+    <ul>
+      <li><strong>Title</strong>: <em>Font size switcher</em></li>
+      <li><strong>Headline</strong>: <em>none</em></li>
+      <li><strong>Module type</strong>: <em>Style switcher</em></li>
+      <li><strong>Style switcher</strong>: <em>Font size switcher</em></li>
+    </ul>
+    <p>Then save the module and add it to the layout of the theme in use.</p>
+    <p>In our scenario, remember to include in the layout the <strong>"main"</strong> stylesheet,
+    while be careful not to include any of the stylesheets used in the
+    style switcher, as they are dynamically loaded, according to the choices made by
+    the user.</p>
+    <p>At this point, the style switcher will be displayed on your website. If you want,
+    you can change its appearance using the following CSS classes:</p>
+    <ul>
+      <li><strong>mod_zad_switcher</strong>: block that encloses the entire style switcher.</li>
+      <li><strong>next_style</strong>: link for the NEXT style button.</li>
+      <li><strong>previous_style</strong>: link for the PREVIOUS style button.</li>
+      <li><strong>default_style</strong>: link for the DEFAULT style button.</li>
+      <li><strong>item_style</strong>: link for each style button, in case you did not use the NEXT/PREVIOUS/DEFAULT buttons.</li>
+    </ul>
+    <p>In our scenario, you can change the look of the style switcher adding
+    following settings to the <strong>main</strong> stylesheet:</p>
+<pre><code>.mod_zad_switcher {
+  <span class="k">background-color</span>: <span class="n">#DDDDDD</span>;
+  <span class="k">color</span>: <span class="n">#000000</span>;
+  <span class="k">padding</span>: <span class="n">5px</span>;
+}
+
+.mod_zad_switcher a.previous_style,
+.mod_zad_switcher a.default_style,
+.mod_zad_switcher a.next_style {
+  <span class="k">margin-right</span>: <span class="n">5px</span>;
+  <span class="k">text-decoration</span>: <span class="n">underline</span>;
+  <span class="k">background-color</span>: <span class="n">#DDDDDD</span>;
+  <span class="k">color</span>: <span class="n">#BB0000</span>;
+  <span class="k">font-weight</span>: <span class="n">bold</span>;
+}</code></pre>
+    <p>Finally, our style switcher will look like the following:</p>
+    <div class="center"><img src="images/my_switcher.png" alt="The style switcher created" title="The style switcher created" /></div>
+    <div id="page_nav">
+      <ul>
+        <li><a class="prev" href="manual-3.html" title="Style settings">Previous</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+  <div id="footer_content" class="inner">
+    <p class="copyright">ZAD Style Switcher is a project maintained by <a href="https://github.com/trinko" title="Go to trinko's page on GitHub">trinko</a></p>
+  </div>
+</div>
+
+</body>
+</html>
