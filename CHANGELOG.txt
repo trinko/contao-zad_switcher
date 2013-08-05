@@ -1,3 +1,7 @@
+Version 3.0.3 stable
+--------------------
+Fixed: image SRC was numeric ID instead of file path.
+
 Version 3.0.2 stable
 --------------------
 Fixed: reinserted deprecated function call for Contao 3.0 compatibility.
