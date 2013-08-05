@@ -114,7 +114,7 @@ class ModuleZadSwitcher extends \Module {
           'href'  => $href . $id,
           'title' => $switcher->nexttitle,
           'label' => $switcher->nextlabel,
-          'image' => $switcher->nextimage,
+          'image' => $this->getImageSRC($switcher->nextimage),
           'tabindex' => $switcher->nexttab,
           'accesskey' => $switcher->nextkey
         );
@@ -127,7 +127,7 @@ class ModuleZadSwitcher extends \Module {
           'href'  => $href . $id,
           'title' => $switcher->prevtitle,
           'label' => $switcher->prevlabel,
-          'image' => $switcher->previmage,
+          'image' => $this->getImageSRC($switcher->previmage),
           'tabindex' => $switcher->prevtab,
           'accesskey' => $switcher->prevkey
         );
@@ -140,7 +140,7 @@ class ModuleZadSwitcher extends \Module {
           'href'  => $href . $id,
           'title' => $switcher->deftitle,
           'label' => $switcher->deflabel,
-          'image' => $switcher->defimage,
+          'image' => $this->getImageSRC($switcher->defimage),
           'tabindex' => $switcher->deftab,
           'accesskey' => $switcher->defkey
         );
@@ -155,7 +155,7 @@ class ModuleZadSwitcher extends \Module {
             'href'  => $href . $style->id,
             'title' => $style->title,
             'label' => $style->label,
-            'image' => $style->image,
+            'image' => $this->getImageSRC($style->image),
             'tabindex' => $style->tabindex,
             'accesskey' => $style->accesskey
           );
@@ -216,6 +216,21 @@ class ModuleZadSwitcher extends \Module {
     $key = 'sitestyle' . $switcher->id;
     $this->Session->set($key, $style->id);
     $this->setCookie($key, $style->id, time() + 31536000, '/');
+  }
+
+	/**
+	 * Get image SRC by file id.
+	 * @param integer
+	 * @return String
+	 */
+	protected function getImageSRC($id) {
+    $src = null;
+    $file = \FilesModel::findByPk($id);
+		if ($file !== null && is_file(TL_ROOT . '/' . $file->path)) {
+      $src = $file->path;
+    }
+    // return image SRC
+    return $src;
   }
 
 }
