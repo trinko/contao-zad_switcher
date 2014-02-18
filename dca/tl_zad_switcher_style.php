@@ -150,7 +150,7 @@ $GLOBALS['TL_DCA']['tl_zad_switcher_style'] = array(
 			'exclude'                     => true,
 			'inputType'                   => 'fileTree',
 			'eval'                        => array('fieldType'=>'radio', 'filesOnly'=>true, 'extensions'=>$GLOBALS['TL_CONFIG']['validImageTypes'], 'tl_class'=>'clr'),
-      'sql'                         => "varchar(255) NOT NULL default ''"
+      'sql'                         => "binary(16) NULL"
 		),
 		'tabindex' => array(
 			'label'                       => &$GLOBALS['TL_LANG']['tl_zad_switcher_style']['tabindex'],
@@ -185,7 +185,7 @@ $GLOBALS['TL_DCA']['tl_zad_switcher_style'] = array(
 			'label'                       => &$GLOBALS['TL_LANG']['tl_zad_switcher_style']['stylefile'],
 			'inputType'                   => 'fileTree',
 			'eval'                        => array('mandatory'=>true, 'fieldType'=>'radio', 'filesOnly'=>true, 'extensions'=>'css', 'tl_class'=>'clr'),
-			'sql'                         => "varchar(255) NOT NULL default ''"
+			'sql'                         => "binary(16) NULL"
 		),
 		'defaultstyle' => array(
 			'label'                       => &$GLOBALS['TL_LANG']['tl_zad_switcher_style']['defaultstyle'],

@@ -1,3 +1,9 @@
+Version 3.0.4 stable
+--------------------
+* Fixed: Unable to save image and/or css file (see https://github.com/trinko/contao-zad_switcher/issues/1).
+* WARNING:
+    after upgraded the module, you have to reinsert button images and/or external css files.
+
 Version 3.0.3 stable
 --------------------
 * Fixed: image SRC was numeric ID instead of file path.
