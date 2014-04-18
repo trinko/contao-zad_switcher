@@ -1,3 +1,9 @@
+Version 3.0.5 stable
+--------------------
+* Fixed: In very special cases creates a wrong url without the "?" separator,
+         like "www.example.com/index.php&sitestyle1=2&file=...".
+         It usually happens with search bots.
+
 Version 3.0.4 stable
 --------------------
 * Fixed: Unable to save image and/or css file (see https://github.com/trinko/contao-zad_switcher/issues/1).

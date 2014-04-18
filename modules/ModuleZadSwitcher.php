@@ -94,11 +94,9 @@ class ModuleZadSwitcher extends \Module {
 		$this->Template = new \FrontendTemplate($this->strTemplate);
 		$this->Template->setData($this->arrData);
     // page URL
-    $req = \Environment::get('request');
-    $search = array('/&sitestyle\d+=\d*/', '/\?sitestyle\d+=\d*$/', '/\?sitestyle\d+=\d*&/');
-    $replace = array('', '', '?');
-    $href = str_replace('&', '&amp;', preg_replace($search, $replace, str_replace('&amp;', '&', $req)));
-    $href .= (strchr($href, '?') ? '&amp;' : '?') . $key . '=';
+    $href = '';
+    $href_query = $this->createBaseUrl($href);
+    $href .= "?$key=";
     // init buttons
     $items = array();
     $next = array();
@@ -111,7 +109,7 @@ class ModuleZadSwitcher extends \Module {
         $id = \ZadSwitcherStyleModel::nextStyle($switcher, $actual);
         $next = array(
           'id'  => $id,
-          'href'  => $href . $id,
+          'href'  => $href . $id . $href_query,
           'title' => $switcher->nexttitle,
           'label' => $switcher->nextlabel,
           'image' => $this->getImageSRC($switcher->nextimage),
@@ -124,7 +122,7 @@ class ModuleZadSwitcher extends \Module {
         $id = \ZadSwitcherStyleModel::previousStyle($switcher, $actual);
         $previous = array(
           'id'  => $id,
-          'href'  => $href . $id,
+          'href'  => $href . $id . $href_query,
           'title' => $switcher->prevtitle,
           'label' => $switcher->prevlabel,
           'image' => $this->getImageSRC($switcher->previmage),
@@ -137,7 +135,7 @@ class ModuleZadSwitcher extends \Module {
         $id = \ZadSwitcherStyleModel::defaultStyle($switcher, $actual);
         $default = array(
           'id'  => $id,
-          'href'  => $href . $id,
+          'href'  => $href . $id . $href_query,
           'title' => $switcher->deftitle,
           'label' => $switcher->deflabel,
           'image' => $this->getImageSRC($switcher->defimage),
@@ -152,7 +150,7 @@ class ModuleZadSwitcher extends \Module {
         while ($style->next()) {
           $items[] = array(
             'id'  => $style->id,
-            'href'  => $href . $style->id,
+            'href'  => $href . $style->id . $href_query,
             'title' => $style->title,
             'label' => $style->label,
             'image' => $this->getImageSRC($style->image),
@@ -231,6 +229,25 @@ class ModuleZadSwitcher extends \Module {
     }
     // return image SRC
     return $src;
+  }
+
+  /**
+	 * Create a base URL for this module
+	 * @var string  Base URL
+	 * @return string  Query string
+	 */
+	protected function createBaseUrl(&$baseurl) {
+    $base = explode('?', \Environment::get('request'));
+    $q = '';
+    if (isset($base[1])) {
+      // delete parameters
+      $q = '&' . str_replace('&amp;', '&', $base[1]);
+      $q = preg_replace('/&sitestyle\d+=\d*/i', '', $q);
+      $q = str_replace('&', '&amp;', $q);
+    }
+    // return base url and query string
+    $baseurl = $base[0];
+    return $q;
   }
 
 }
