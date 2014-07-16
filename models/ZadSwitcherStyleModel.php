@@ -20,7 +20,7 @@ namespace zad_switcher;
 /**
  * Class ZadSwitcherStyleModel
  *
- * @copyright  Antonello Dessì 2010-2013
+ * @copyright  Antonello Dessì 2010-2014
  * @author     Antonello Dessì
  * @package    zad_switcher
  */
@@ -34,9 +34,11 @@ class ZadSwitcherStyleModel extends \Model {
 
 	/**
 	 * Return next style for this switcher
-	 * @param \Model\ZadSwitcherModel
-	 * @param integer
-	 * @return integer
+	 *
+	 * @param \Model\ZadSwitcherModel $switcher  The switcher data model
+	 * @param int $actual  The actual style id
+	 *
+	 * @return int  The new style id
 	 */
 	public static function nextStyle($switcher, $actual) {
     // actual style
@@ -63,9 +65,11 @@ class ZadSwitcherStyleModel extends \Model {
 
 	/**
 	 * Return previous style for this switcher
-	 * @param \Model\ZadSwitcherModel
-	 * @param integer
-	 * @return integer
+	 *
+	 * @param \Model\ZadSwitcherModel $switcher  The switcher data model
+	 * @param int $actual  The actual style id
+	 *
+	 * @return int  The new style id
 	 */
 	public static function previousStyle($switcher, $actual) {
     // actual style
@@ -92,9 +96,11 @@ class ZadSwitcherStyleModel extends \Model {
 
 	/**
 	 * Return default style for this switcher
-	 * @param \Model\ZadSwitcherModel
-	 * @param integer
-	 * @return integer
+	 *
+	 * @param \Model\ZadSwitcherModel $switcher  The switcher data model
+	 * @param int $actual  The actual style id
+	 *
+	 * @return int  The new style id
 	 */
 	public static function defaultStyle($switcher, $actual) {
 	  // get default style

@@ -202,7 +202,8 @@ $GLOBALS['TL_DCA']['tl_zad_switcher_style'] = array(
  * Class tl_zad_switcher_style
  *
  * Provide miscellaneous methods that are used by the data configuration array.
- * @copyright Antonello Dessì 2010-2013
+ *
+ * @copyright Antonello Dessì 2010-2014
  * @author    Antonello Dessì
  * @package   zad_switcher
  */
@@ -227,8 +228,10 @@ class tl_zad_switcher_style extends Backend {
 
 	/**
 	 * List styles
-	 * @param array
-	 * @return string
+	 *
+	 * @param array $row  The table row
+	 *
+	 * @return string  Html text for a style
 	 */
 	public function listStyles($row) {
     $css = '';
@@ -255,13 +258,15 @@ class tl_zad_switcher_style extends Backend {
 
 	/**
 	 * Return the "toggle default" button
-	 * @param array
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @return string
+	 *
+	 * @param array $row  The table row
+	 * @param string $href  Url for the button
+	 * @param string $label  Label text for the button
+	 * @param string $title  Title text for the button
+	 * @param string $icon  Icon name for the button
+	 * @param string $attributes  Other attributes for the button
+	 *
+	 * @return string  Html text for the button
 	 */
 	public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
 		if (strlen(Input::get('tid'))) {
@@ -276,8 +281,9 @@ class tl_zad_switcher_style extends Backend {
 
 	/**
 	 * Toggle the default style
-	 * @param integer
-	 * @param boolean
+	 *
+	 * @param int $id  The style id
+	 * @param boolean $default  True for set default
 	 */
 	public function toggleDefault($id, $default) {
     if ($default) {
@@ -295,13 +301,15 @@ class tl_zad_switcher_style extends Backend {
 
 	/**
 	 * Return the "delete" button, avoiding deletion of default style
-	 * @param array
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @return string
+	 *
+	 * @param array $row  The table row
+	 * @param string $href  Url for the button
+	 * @param string $label  Label text for the button
+	 * @param string $title  Title text for the button
+	 * @param string $icon  Icon name for the button
+	 * @param string $attributes  Other attributes for the button
+	 *
+	 * @return string  Html text for the button
 	 */
 	public function deleteIcon($row, $href, $label, $title, $icon, $attributes) {
     // get default
@@ -315,13 +323,15 @@ class tl_zad_switcher_style extends Backend {
 
 	/**
 	 * Return the "cut" button, avoiding moving of default style
-	 * @param array
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @return string
+	 *
+	 * @param array $row  The table row
+	 * @param string $href  Url for the button
+	 * @param string $label  Label text for the button
+	 * @param string $title  Title text for the button
+	 * @param string $icon  Icon name for the button
+	 * @param string $attributes  Other attributes for the button
+	 *
+	 * @return string  Html text for the button
 	 */
 	public function cutIcon($row, $href, $label, $title, $icon, $attributes) {
     // get default
@@ -335,7 +345,8 @@ class tl_zad_switcher_style extends Backend {
 
 	/**
 	 * Set default style for first record
-	 * @param \DataContainer
+	 *
+	 * @param \DataContainer $dc  The data container of the table
 	 */
 	public function setDefault($dc) {
 		// return if there is no active record
@@ -353,8 +364,9 @@ class tl_zad_switcher_style extends Backend {
 	}
 
 	/**
-	 * Check default style for the switcher
-	 * @param \DataContainer
+	 * Check default style for the switcher, on delete event
+	 *
+	 * @param \DataContainer $dc  The data container of the table
 	 */
 	public function checkDefaultOnDelete($dc) {
     // get switchers with default style to delete
@@ -369,8 +381,9 @@ class tl_zad_switcher_style extends Backend {
 	}
 
 	/**
-	 * Check default style for the switcher
-	 * @param \DataContainer
+	 * Check default style for the switcher, on cut event
+	 *
+	 * @param \DataContainer $dc  The data container of the table
 	 */
 	public function checkDefaultOnCut($dc) {
     // get switchers with default style to cut

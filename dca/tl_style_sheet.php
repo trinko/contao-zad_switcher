@@ -25,7 +25,8 @@ $GLOBALS['TL_DCA']['tl_style_sheet']['config']['ondelete_callback'][] =
  * Class tl_style_sheet_zad_switcher
  *
  * Provide miscellaneous methods that are used by the data configuration array.
- * @copyright Antonello Dessì 2010-2013
+ *
+ * @copyright Antonello Dessì 2010-2014
  * @author    Antonello Dessì
  * @package   zad_switcher
  */
@@ -33,7 +34,8 @@ class tl_style_sheet_zad_switcher extends Backend {
 
 	/**
 	 * Delete references to stylesheet in style switchers
-	 * @param \DataContainer
+	 *
+	 * @param \DataContainer $dc  The data container of the table
 	 */
 	public function deleteStylesheet($dc) {
     // get switchers with default style to delete

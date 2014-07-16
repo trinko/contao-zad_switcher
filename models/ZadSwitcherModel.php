@@ -20,7 +20,7 @@ namespace zad_switcher;
 /**
  * Class ZadSwitcherModel
  *
- * @copyright  Antonello Dessì 2010-2013
+ * @copyright  Antonello Dessì 2010-2014
  * @author     Antonello Dessì
  * @package    zad_switcher
  */

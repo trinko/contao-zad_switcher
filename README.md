@@ -1,6 +1,6 @@
 ZAD Style Switcher - An extension for Contao CMS
 ------------------------------------------------
-Since Contao does not offer a native tool for the insertion of a style switcher in a website,
+Since Contao does not offer a native tool for adding a style switcher to a website,
 this extension solves the problem.
 
 A style switcher allows users to choose the preferred style to view your website.

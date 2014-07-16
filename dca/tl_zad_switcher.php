@@ -286,7 +286,8 @@ $GLOBALS['TL_DCA']['tl_zad_switcher'] = array(
  * Class tl_zad_switcher
  *
  * Provide miscellaneous methods that are used by the data configuration array.
- * @copyright Antonello Dessì 2010-2013
+ *
+ * @copyright Antonello Dessì 2010-2014
  * @author    Antonello Dessì
  * @package   zad_switcher
  */
@@ -294,13 +295,15 @@ class tl_zad_switcher extends Backend {
 
 	/**
 	 * Return the "toggle visibility" button
-	 * @param array
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @param string
-	 * @return string
+	 *
+	 * @param array $row  The table row
+	 * @param string $href  Url for the button
+	 * @param string $label  Label text for the button
+	 * @param string $title  Title text for the button
+	 * @param string $icon  Icon name for the button
+	 * @param string $attributes  Other attributes for the button
+	 *
+	 * @return string  Html text for the button
 	 */
 	public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
 		if (strlen(Input::get('tid'))) {
@@ -316,8 +319,9 @@ class tl_zad_switcher extends Backend {
 
 	/**
 	 * Disable/enable a style switcher
-	 * @param integer
-	 * @param boolean
+	 *
+	 * @param int $id  The switcher id
+	 * @param boolean $visible  True/False for enable/disable
 	 */
 	public function toggleVisibility($id, $visible) {
 		// Update the database
@@ -327,7 +331,8 @@ class tl_zad_switcher extends Backend {
 
 	/**
 	 * Return all templates as array
-	 * @return array
+	 *
+	 * @return array  A list with all templates
 	 */
 	public function getTemplates() {
 		return $this->getTemplateGroup('zad_switcher_');
