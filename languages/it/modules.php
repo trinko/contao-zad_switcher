@@ -3,12 +3,12 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2013 Leo Feyer
+ * Copyright (c) 2005-2014 Leo Feyer
  *
  * @package   zad_switcher
  * @author    Antonello Dessì
- * @license   LGPL
- * @copyright Antonello Dessì 2010-2013
+ * @license   http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * @copyright Antonello Dessì 2010-2014
  */
 
 
