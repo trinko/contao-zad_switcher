@@ -1,7 +1,12 @@
+Version 3.0.6 stable
+--------------------
+* Fixed: The URL parameters were duplicated in some special cases.
+* Fixed: minor bugs.
+* Changed: improved source code documentation.
+
 Version 3.0.5 stable
 --------------------
-* Fixed: In very special cases creates a wrong url without the "?" separator,
-         like "www.example.com/index.php&sitestyle1=2&file=...".
+* Fixed: In very special cases creates a wrong url without the "?" separator.
          It usually happens with search bots.
 
 Version 3.0.4 stable
