@@ -21,7 +21,7 @@ namespace zad_switcher;
 /**
  * Class ModuleZadSwitcher
  *
- * @copyright  Antonello Dessì 2010-2013
+ * @copyright  Antonello Dessì 2010-2014
  * @author     Antonello Dessì
  * @package    zad_switcher
  */
@@ -35,7 +35,8 @@ class ModuleZadSwitcher extends \Module {
 
 	/**
 	 * Display a wildcard in the back end
-	 * @return string
+	 *
+	 * @return string  The html text for the module
 	 */
 	public function generate() {
 		if (TL_MODE == 'BE') {
@@ -63,19 +64,17 @@ class ModuleZadSwitcher extends \Module {
       return;
     }
     // read actual style using get/post/session/cookie/default
-    $key = 'sitestyle' . intval($this->zad_switcher);
+    $actual = null;
+    $key = 'zsS_' . intval($this->zad_switcher);
     if ($switcher->uselinks && \Input::get($key)) {
       // get new style by GET
       $actual = \Input::get($key);
       // prevent indexing
       $objPage->noSearch = 1;
       $objPage->cache = 0;
-    } elseif (!$switcher->uselinks && \Input::post('FORM_SUBMIT') == $key) {
+    } elseif (!$switcher->uselinks && \Input::post($key)) {
       // get new style by POST
-      $actual = \Input::post('id');
-      // prevent indexing
-      $objPage->noSearch = 1;
-      $objPage->cache = 0;
+      $actual = \Input::post($key);
     } elseif ($this->Session->get($key)) {
       // read saved style by session
       $actual = $this->Session->get($key);
@@ -87,16 +86,17 @@ class ModuleZadSwitcher extends \Module {
       // get default
       $actual = \ZadSwitcherStyleModel::defaultStyle($switcher, 0);
     }
-    // add stylesheets to page HEAD
-    $this->setPageHead($switcher, $actual);
+    // add stylesheet to page HEAD
+    $this->setPageHead($switcher, $actual, $key);
 	  // get custom template
 		$this->strTemplate = $switcher->template;
 		$this->Template = new \FrontendTemplate($this->strTemplate);
 		$this->Template->setData($this->arrData);
     // page URL
     $href = '';
-    $href_query = $this->createBaseUrl($href);
-    $href .= "?$key=";
+    $href_query = '';
+    $href_req = '';
+    $this->createBaseUrl($key, $href, $href_query, $href_req);
     // init buttons
     $items = array();
     $next = array();
@@ -163,7 +163,7 @@ class ModuleZadSwitcher extends \Module {
     // set template vars
     $this->Template->active = true;
     $this->Template->uselinks = $switcher->uselinks;
-    $this->Template->url = $req;
+    $this->Template->url = $href_req;
     $this->Template->key = $key;
     $this->Template->next = $next;
     $this->Template->previous = $previous;
@@ -173,10 +173,12 @@ class ModuleZadSwitcher extends \Module {
 
 	/**
 	 * Add stylesheets to page HEAD.
-	 * @param \Model\ZadSwitcherModel
-	 * @param integer
+	 *
+	 * @param \Model\ZadSwitcherModel $switcher  The switcher data model
+	 * @param int $actual  The actual style id
+	 * @param string $key  The parameter name for setting styles
 	 */
-	protected function setPageHead($switcher, $actual) {
+	protected function setPageHead($switcher, $actual, $key) {
     global $objPage;
     // get stylesheet
     $style = \ZadSwitcherStyleModel::findByPk($actual);
@@ -211,15 +213,16 @@ class ModuleZadSwitcher extends \Module {
       implode(',', deserialize($switcher->media)) . '"' .
       (($objPage->outputFormat == 'xhtml') ? ' />' : '>');
     // try to set session and cookie (1 year expiration)
-    $key = 'sitestyle' . $switcher->id;
     $this->Session->set($key, $style->id);
     $this->setCookie($key, $style->id, time() + 31536000, '/');
   }
 
 	/**
 	 * Get image SRC by file id.
-	 * @param integer
-	 * @return String
+	 *
+	 * @param int $id  The id of the image
+	 *
+	 * @return string  The file path of the image
 	 */
 	protected function getImageSRC($id) {
     $src = null;
@@ -232,22 +235,29 @@ class ModuleZadSwitcher extends \Module {
   }
 
   /**
-	 * Create a base URL for this module
-	 * @var string  Base URL
-	 * @return string  Query string
+	 * Create a base URL and remove module parameters
+	 *
+	 * @param string $key  The parameter name for setting styles
+	 * @param string $baseurl  Return the base URL
+	 * @param string $queryurl  Return query string without module parameters
+	 * @param string $requesturl  Return current url without module parameters
 	 */
-	protected function createBaseUrl(&$baseurl) {
+	protected function createBaseUrl($key, &$baseurl, &$queryurl, &$requesturl) {
     $base = explode('?', \Environment::get('request'));
     $q = '';
+    // clean base url
+    $base[0] = preg_replace('|/zsS_\d+/\d+|', '', $base[0]);
+    // clean query string
     if (isset($base[1])) {
       // delete parameters
       $q = '&' . str_replace('&amp;', '&', $base[1]);
-      $q = preg_replace('/&sitestyle\d+=\d*/i', '', $q);
+      $q = preg_replace('/&zsS_\d+=\d+/', '', $q);
       $q = str_replace('&', '&amp;', $q);
     }
     // return base url and query string
-    $baseurl = $base[0];
-    return $q;
+    $baseurl = $base[0] . "?$key=";
+    $queryurl = $q;
+    $requesturl = ($q == '') ? $base[0] : ($base[0].'?'.substr($q, 1));
   }
 
 }

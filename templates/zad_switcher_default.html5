@@ -20,33 +20,33 @@
 <?php else: ?>
 <?php if (count($this->previous)): ?>
 <form action="<?php echo $this->url; ?>" method="post"><div>
-<input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->key; ?>" />
+<input type="hidden" name="FORM_SUBMIT" value="PREVIOUS_BUTTON" />
 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
-<input type="hidden" name="id" value="<?php echo $this->previous['id']; ?>" />
+<input type="hidden" name="<?php echo $this->key; ?>" value="<?php echo $this->previous['id']; ?>" />
 <button type="submit" class="previous_style" title="<?php echo $this->previous['title']; ?>"<?php if ($this->previous['accesskey'] != ''): ?> accesskey="<?php echo $this->previous['accesskey']; ?>"<?php endif; ?><?php if ($this->previous['tabindex']): ?> tabindex="<?php echo $this->previous['tabindex']; ?>"<?php endif; ?>><?php if ($this->previous['image']): ?><img src="<?php echo $this->previous['image']; ?>" alt="" /><?php endif; ?><?php if ($this->previous['label']): ?><span><?php echo $this->previous['label']; ?></span><?php endif; ?></button>
 </div></form>
 <?php endif; ?>
 <?php if (count($this->default)): ?>
 <form action="<?php echo $this->url; ?>" method="post"><div>
-<input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->key; ?>" />
+<input type="hidden" name="FORM_SUBMIT" value="DEFAULT_BUTTON" />
 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
-<input type="hidden" name="id" value="<?php echo $this->default['id']; ?>" />
+<input type="hidden" name="<?php echo $this->key; ?>" value="<?php echo $this->default['id']; ?>" />
 <button type="submit" class="default_style" title="<?php echo $this->default['title']; ?>"<?php if ($this->default['accesskey'] != ''): ?> accesskey="<?php echo $this->default['accesskey']; ?>"<?php endif; ?><?php if ($this->default['tabindex']): ?> tabindex="<?php echo $this->default['tabindex']; ?>"<?php endif; ?>><?php if ($this->default['image']): ?><img src="<?php echo $this->default['image']; ?>" alt="" /><?php endif; ?><?php if ($this->default['label']): ?><span><?php echo $this->default['label']; ?></span><?php endif; ?></button>
 </div></form>
 <?php endif; ?>
 <?php if (count($this->next)): ?>
 <form action="<?php echo $this->url; ?>" method="post"><div>
-<input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->key; ?>" />
+<input type="hidden" name="FORM_SUBMIT" value="NEXT_BUTTON" />
 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
-<input type="hidden" name="id" value="<?php echo $this->next['id']; ?>" />
+<input type="hidden" name="<?php echo $this->key; ?>" value="<?php echo $this->next['id']; ?>" />
 <button type="submit" class="next_style" title="<?php echo $this->next['title']; ?>"<?php if ($this->next['accesskey'] != ''): ?> accesskey="<?php echo $this->next['accesskey']; ?>"<?php endif; ?><?php if ($this->next['tabindex']): ?> tabindex="<?php echo $this->next['tabindex']; ?>"<?php endif; ?>><?php if ($this->next['image']): ?><img src="<?php echo $this->next['image']; ?>" alt="" /><?php endif; ?><?php if ($this->next['label']): ?><span><?php echo $this->next['label']; ?></span><?php endif; ?></button>
 </div></form>
 <?php endif; ?>
 <?php foreach ($this->items as $item): ?>
 <form action="<?php echo $this->url; ?>" method="post"><div>
-<input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->key; ?>" />
+<input type="hidden" name="FORM_SUBMIT" value="ITEM_BUTTON" />
 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
-<input type="hidden" name="id" value="<?php echo $item['id']; ?>" />
+<input type="hidden" name="<?php echo $this->key; ?>" value="<?php echo $item['id']; ?>" />
 <button type="submit" class="item_style" title="<?php echo $item['title']; ?>"<?php if ($item['accesskey'] != ''): ?> accesskey="<?php echo $item['accesskey']; ?>"<?php endif; ?><?php if ($item['tabindex']): ?> tabindex="<?php echo $item['tabindex']; ?>"<?php endif; ?>><?php if ($item['image']): ?><img src="<?php echo $item['image']; ?>" alt="" /><?php endif; ?><?php if ($item['label']): ?><span><?php echo $item['label']; ?></span><?php endif; ?></button>
 </div></form>
 <?php endforeach; ?>
