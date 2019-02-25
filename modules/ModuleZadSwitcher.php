@@ -103,7 +103,7 @@ class ModuleZadSwitcher extends \Module {
     $previous = array();
     $default = array();
     // set buttons
-    if (($switcher->nextenabled + $switcher->prevenabled + $switcher->defenabled) > 0) {
+    if ($switcher->nextenabled || $switcher->prevenabled || $switcher->defenabled) {
       // set next button
       if ($switcher->nextenabled) {
         $id = \ZadSwitcherStyleModel::nextStyle($switcher, $actual);
